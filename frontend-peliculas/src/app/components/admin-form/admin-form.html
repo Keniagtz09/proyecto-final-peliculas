@@ -1,0 +1,61 @@
+<div class="form-container">
+  <div class="form-card">
+    <header class="form-header">
+      <h1>{{ isEditMode ? 'Editar Película' : 'Agregar Nueva Película' }}</h1>
+      <p>Completa los campos técnicos para actualizar el catálogo de la plataforma</p>
+    </header>
+
+    <form (ngSubmit)="saveMovie()" #movieForm="ngForm">
+      
+      <div class="input-group">
+        <label for="title">Título de la Película</label>
+        <input type="text" id="title" name="title" [(ngModel)]="movie.title" required placeholder="Ej: Interstellar" autocomplete="off">
+      </div>
+
+      <div class="form-row">
+        <div class="input-group">
+          <label for="genre">Género</label>
+          <input type="text" id="genre" name="genre" [(ngModel)]="movie.genre" required placeholder="Ej: Ciencia Ficción">
+        </div>
+
+        <div class="input-group">
+          <label for="year">Año de Lanzamiento</label>
+          <input 
+            type="number" 
+            id="year" 
+            name="year" 
+            [(ngModel)]="movie.year_released" required 
+            placeholder="Ej: 2014">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="director">Director / Realizador</label>
+        <input type="text" id="director" name="director" [(ngModel)]="movie.director" placeholder="Ej: Quentin Tarantino" autocomplete="off">
+      </div>
+
+      <div class="input-group">
+        <label for="poster_url">URL del Póster (Imagen)</label>
+        <input type="url" id="poster_url" name="poster_url" [(ngModel)]="movie.poster_url" required placeholder="https://ejemplo.com/imagen.jpg">
+      </div>
+
+      <div class="input-group">
+        <label for="trailer_url">URL del Tráiler (Video)</label>
+        <input type="url" id="trailer_url" name="trailer_url" [(ngModel)]="movie.trailer_url" required placeholder="https://youtube.com/embed/...">
+      </div>
+
+      <div class="input-group">
+        <label for="synopsis">Sinopsis / Resumen</label>
+        <textarea id="synopsis" name="synopsis" rows="5" [(ngModel)]="movie.synopsis" required placeholder="Escribe un breve resumen..."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <a routerLink="/" class="btn-cancel">Cancelar</a>
+        <button type="submit" class="btn-submit" [disabled]="!movieForm.form.valid">
+          {{ isEditMode ? 'Guardar Cambios' : 'Añadir al Catálogo' }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

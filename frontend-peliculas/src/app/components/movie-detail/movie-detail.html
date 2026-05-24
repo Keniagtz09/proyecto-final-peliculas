@@ -1,0 +1,45 @@
+<div class="detail-container">
+  <div class="back-navigation">
+    <a routerLink="/" class="btn-back">
+      ← Volver al Catálogo
+    </a>
+  </div>
+
+  <div *ngIf="!movie" class="loading-detail">
+    <p>Buscando los detalles de la película en el servidor...</p>
+  </div>
+
+  <div class="detail-card" *ngIf="movie">
+    
+    <div class="detail-poster">
+      <img [src]="movie.poster_url" [alt]="movie.title" onerror="this.src='https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=500&auto=format&fit=crop'">
+    </div>
+
+    <div class="detail-info">
+      <span class="detail-badge-year">{{ movie.year_released }}</span>
+      <h1 class="movie-title">{{ movie.title }}</h1>
+      
+      <div class="info-group" *ngIf="movie.director">
+        <label>Director</label>
+        <p class="info-text">{{ movie.director }}</p>
+      </div>
+
+      <div class="info-group">
+        <label>Género</label>
+        <p class="info-text genre-text">{{ movie.genre }}</p>
+      </div>
+
+      <div class="info-group">
+        <label>Sinopsis General</label>
+        <p class="info-text synopsis-text">{{ movie.synopsis }}</p>
+      </div>
+
+      <div class="detail-actions">
+        <a [routerLink]="['/editar', movie.id]" class="btn-action btn-edit">
+          Editar Información
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

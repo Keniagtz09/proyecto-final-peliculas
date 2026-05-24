@@ -1,0 +1,39 @@
+<div class="catalog-container">
+  <header class="catalog-header">
+    <h1>Explorar Catálogo</h1>
+    <p>Descubre y administra las últimas adiciones de la plataforma</p>
+  </header>
+
+  <div *ngIf="movies.length === 0" class="loading-state">
+    <p>No hay películas disponibles en este momento o el servidor está apagado.</p>
+  </div>
+
+  <div class="movies-grid" *ngIf="movies.length > 0">
+    <div class="movie-card" *ngFor="let movie of movies">
+      
+      <div class="card-poster">
+          <img [src]="movie.poster_url" [alt]="movie.title" onerror="this.src='https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=500&auto=format&fit=crop'">
+          <span class="card-badge">{{ movie.year_released }}</span>
+      </div>
+
+      <div class="card-content">
+        <h3 class="movie-title">{{ movie.title }}</h3>
+        <p class="movie-genre"><span>Género:</span> {{ movie.genre }}</p>
+        <p class="movie-genre" *ngIf="movie.director"><span>Director:</span> {{ movie.director }}</p> <p class="movie-synopsis">{{ movie.synopsis }}</p>
+        
+        <div class="card-actions">
+          <a [routerLink]="['/pelicula', movie.id]" class="btn-action btn-view" title="Ver Detalles">
+            Ver más
+          </a>
+          <a [routerLink]="['/editar', movie.id]" class="btn-action btn-edit" title="Editar">
+            Editar
+          </a>
+          <button (click)="deleteMovie(movie.id)" class="btn-action btn-delete" title="Eliminar">
+            Eliminar
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
