@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('director')->nullable();
             $table->string('genre');
-            $table->integer('year_released'); // 👈 Asegurar que se llame así
-            $table->string('poster_url');    // 👈 Asegurar que se llame así
-            $table->string('trailer_url');   // 👈 Asegurar que se llame así
+            $table->integer('year_released'); 
+            $table->string('poster_url');    
+            $table->string('trailer_url');   
             $table->text('synopsis');
             $table->timestamps();
         });

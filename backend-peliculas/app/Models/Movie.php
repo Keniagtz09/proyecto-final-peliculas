@@ -10,9 +10,9 @@ protected $fillable = [
     'title', 
     'director', 
     'genre', 
-    'year_released', // 👈 Verificar que coincida con tu migración
-    'poster_url',    // 👈 Debe estar aquí
-    'trailer_url',   // 👈 Debe estar aquí
+    'year_released', 
+    'poster_url',    
+    'trailer_url',   
     'synopsis'
 ];
 }

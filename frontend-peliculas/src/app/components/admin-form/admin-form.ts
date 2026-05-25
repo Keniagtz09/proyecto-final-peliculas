@@ -8,18 +8,18 @@ import { MovieService } from '../../services/movie';
   selector: 'app-admin-form',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './admin-form.html', // 👈 Revisa que esta línea exista y tenga la coma al final
-  styleUrl: './admin-form.css'       // 👈 Revisa que esta línea exista correctamente
+  templateUrl: './admin-form.html', 
+  styleUrl: './admin-form.css'       
 })
 export class AdminFormComponent implements OnInit {
   // Objeto base que mapea los datos hacia el HTML
   movie: any = {
     title: '',
-    director: '', // 👈 Validamos que esté dada de alta la propiedad del director
+    director: '', 
     genre: '',
-    year_released: null,       // 👈 Tu backend lo pide como "year"
-    poster_url: '',  // 👈 Sincronizado con la regla "poster_url"
-    trailer_url: '',   // 👈 Agregado para cumplir la regla "trailer_url"
+    year_released: null,     
+    poster_url: '',  
+    trailer_url: '',   
     synopsis: ''
   };
 

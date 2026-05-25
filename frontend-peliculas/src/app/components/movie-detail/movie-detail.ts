@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; // 👈 Agregado ChangeDetectorRef
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MovieService } from '../../services/movie'; 
@@ -13,7 +13,7 @@ import { MovieService } from '../../services/movie';
 export class MovieDetailComponent implements OnInit {
   movie: any = null;
 
-  // 👈 Inyectamos cdr en el constructor
+  
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieService,
@@ -27,7 +27,7 @@ export class MovieDetailComponent implements OnInit {
       this.movieService.getMovie(id).subscribe({
         next: (data) => {
           this.movie = data;
-          this.cdr.detectChanges(); // 👈 FORZAR: Obliga a Angular a pintar la info de inmediato
+          this.cdr.detectChanges(); 
         },
         error: (err) => {
           console.error('Error al obtener los detalles de la película:', err);

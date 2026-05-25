@@ -2,10 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(20, 18, 31, 0.65); /* Fondo oscuro semi-transparente */
-  backdrop-filter: blur(12px); /* Efecto de vidrio esmerilado */
+  background: rgba(20, 18, 31, 0.65); 
+  backdrop-filter: blur(12px); 
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(147, 51, 234, 0.1); /* Línea inferior púrpura muy sutil */
+  border-bottom: 1px solid rgba(147, 51, 234, 0.1); 
   padding: 1rem 2rem;
 }
 

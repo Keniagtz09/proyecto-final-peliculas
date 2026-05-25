@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; // 👈 Agregado ChangeDetectorRef aquí
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MovieService } from '../../services/movie';
@@ -13,7 +13,7 @@ import { MovieService } from '../../services/movie';
 export class CatalogComponent implements OnInit {
   movies: any[] = [];
 
-  // 👈 Inyectamos cdr en el constructor junto al servicio
+  
   constructor(
     private movieService: MovieService,
     private cdr: ChangeDetectorRef 
@@ -27,7 +27,7 @@ export class CatalogComponent implements OnInit {
     this.movieService.getMovies().subscribe({
       next: (data) => {
         this.movies = data;
-        this.cdr.detectChanges(); // 👈 FORZAR: Le dice a Angular que pinte las tarjetas de inmediato
+        this.cdr.detectChanges(); 
       },
       error: (err) => {
         console.error('Error al cargar las películas desde el servidor:', err);
@@ -40,7 +40,7 @@ export class CatalogComponent implements OnInit {
       this.movieService.deleteMovie(id).subscribe({
         next: () => {
           this.movies = this.movies.filter(movie => movie.id !== id);
-          this.cdr.detectChanges(); // 👈 También forzamos al eliminar
+          this.cdr.detectChanges(); 
         },
         error: (err) => {
           console.error('Error al intentar eliminar la película:', err);
